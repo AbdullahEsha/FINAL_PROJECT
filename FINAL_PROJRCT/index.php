@@ -2,12 +2,8 @@
 <html>
 <head>
 <style>
-  *{
-    margin: 0;
-    padding: 0;
-  }
 	body {
-		background-image: url(final1.jpg);
+		background-image: url(img/final1.jpg);
 		background-repeat: no-repeat;
     background-size: 125%;
     opacity: 0.8;
@@ -41,29 +37,12 @@
 </style>
 </head>
 <body>
-
-<table width="100%">
-  <tr>
-    <td colspan="2">
-      <ul>
-        <li><a class="active" href="index.php">Home</a></li>
-        <li style="float:right"><a class="active" href="views/login.php">Login</a></li>
-        <li style="float:right"><a class="active" href="views/register.php">SignUp</a></li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td height="837px">
-      
-    </td>
-    <td>
-      
-    </td>
-  </tr>
-  <tr style="background-color: white;">
-    <td colspan="2" align="center">copyright@2017</td>
-  </tr>
-</table>
+<ul>
+  <li><a class="active" href="index.php">Home</a></li>
+  <li style="float:right"><a class="active" href="views/login.php">Login</a></li>
+  <li style="float:right"><a class="active" href="views/register.php">SignUp</a></li>
+  <li style="float:right"><a class="active" href="views/cv_page.php">CV</a></li>
+</ul>
 
 </body>
 </html>
