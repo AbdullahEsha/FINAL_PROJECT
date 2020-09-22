@@ -13,6 +13,7 @@ function loadData(){
     setCustomerData();
     setFoodMenuData();
     setProfitDetails();
+    getAllApplication('AdminHome');
 }
 
 
@@ -234,4 +235,26 @@ function setProfitDetails(){
             }
         }	
     }
+}
+
+// GET JOB APLLICATION
+function getAllApplication(page){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open('POST', '../../../phpValidations/admin/admin_validations/admin_controller.php', true);
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send('getAll='+page);
+
+    xhttp.onreadystatechange = function (){
+        if(this.readyState == 4 && this.status == 200){
+            if(this.responseText != ""){
+                document.getElementById('tbodyApplication').innerHTML = this.responseText;
+            }else{
+                document.getElementById('tbodyApplication').innerHTML = "";
+            }
+        }	
+    }
+}
+
+function hide(){
+    document.getElementById('search_result').style.display = "none";
 }

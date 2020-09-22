@@ -112,7 +112,7 @@
             echo "DB connection error";
         }
 
-        $revSql = "select users.id,users.name,users.profile_picture,reservation.rev_from,reservation.rev_to,reservation.total_amount,reservation.paid_amount,reservation.status,reservation.user_id from users INNER JOIN reservation ON users.id = reservation.user_id where users.userType ='Customer'";
+        $revSql = "select users.id,users.name,users.profile_picture,bookings.arrivalTime,bookings.departureTime,bookings.pakage,bookings.status,bookings.customer_id from users INNER JOIN bookings ON users.id = bookings.customer_id where users.userType ='Customer'";
         $allResult = mysqli_query($conn, $revSql);
 
         $allRev = [];
@@ -131,7 +131,7 @@
             echo "DB connection error";
         }
 
-        $revSql = "select users.id,users.name,users.profile_picture,reservation.rev_from,reservation.rev_to,reservation.total_amount,reservation.paid_amount,reservation.status,reservation.user_id from users INNER JOIN reservation ON users.id = reservation.user_id where rev_from >='$dateFrom' AND rev_to <='$dateTo'";
+        $revSql = "select users.id,users.name,users.profile_picture,bookings.arrivalTime,bookings.departureTime,bookings.pakage,bookings.status,bookings.customer_id from users INNER JOIN bookings ON users.id = bookings.customer_id where arrivalTime >='$dateFrom' AND departureTime <='$dateTo'";
         $allResult = mysqli_query($conn, $revSql);
 
         $allRev = [];

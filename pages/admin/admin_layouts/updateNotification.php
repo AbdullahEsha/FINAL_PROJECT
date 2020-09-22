@@ -110,6 +110,7 @@
                                 <td colspan="2" style="text-align: center;">
                                     <a href="../../../pages/admin/admin_layouts/notifications.php" class="btn btn-info">Back</a>
                                     <button class="btn btn-success" onclick="approveApplication(<?=$apId;?>)">Approve</button>
+                                    <button class="btn btn-danger" onclick="rejectApplication(<?=$apId;?>)">Reject</button>
                                 </td>
                             </tr>
                         </tbody>

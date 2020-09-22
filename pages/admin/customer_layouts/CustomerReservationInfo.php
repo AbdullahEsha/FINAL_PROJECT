@@ -118,8 +118,7 @@
                                         <th>Profile Picture</th>
                                         <th>Full Name</th>
                                         <th>Reservation Date</th>
-                                        <th>Total Amount</th>
-                                        <th>Paid Amount</th>
+                                        <th>Package</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>

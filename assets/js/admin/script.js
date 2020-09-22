@@ -429,48 +429,46 @@ function fileUploadValidation(){
     }
 }
 
+function new_a(){
+    alert("WORKS");
+}
+
 // UPDATE PROFILE INFORMATION
 function updateProfile(){
-    var validData = validate();
-    if(validData){
-        var uid=document.getElementById('uid').value;
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        var confirmPass = document.getElementById('confirm_password').value;
-        var gender = genderPicked;
-        var day = document.getElementById('day').value;
-        var month = document.getElementById('month').value;
-        var year = document.getElementById('year').value;
-        var fileUpload = document.getElementById('profile_picture');
-        var fileName = fileUpload.files[0].name; 
-        var filePath = fileUpload.value;
-        var balance = document.getElementById('balance').value;
-        
-        var xhttp = new XMLHttpRequest();
-        xhttp.open('POST', '../../Php/admin_validations/profile_update_validation.php', true);
-        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhttp.send('id='+uid+'&name='+name+"&email="+email+"&username="+username+"&password="+password+"&confirmPass="+confirmPass+"&gender="+gender+"&day="+day+"&month="+month+"&year="+year+"&fileUpload="+fileName+"&filePath="+filePath+"&balance="+balance);
-        
-        xhttp.onreadystatechange = function (){
-            if(this.readyState == 4 && this.status == 200){
-                if(this.responseText != ""){
-                    document.getElementById('msg').innerHTML = this.responseText;
-                    if(this.responseText == "true"){
-                        alert('Profile Updated successfully!');
-                        window.location = "../../pages/admin_layouts/profile_details.php";
-                    }
-                    else{
-                        alert('Profile not Updated successfully!'+this.responseText);
-                        window.location = "../../pages/admin_layouts/profile_details.php";
-                    }
-                }else{
-                    document.getElementById('msg').innerHTML = "Not Updated.";
+    var uid=document.getElementById('uid').value;
+    var uid=document.getElementById('uid').value;
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var confirmPass = document.getElementById('confirm_password').value;
+    var day = document.getElementById('day').value;
+    var month = document.getElementById('month').value;
+    var year = document.getElementById('year').value;
+    var fileUpload = document.getElementById('profile_picture').files[0].name;
+    var phone = document.getElementById('phone').value;
+    
+    var xhttp = new XMLHttpRequest();
+    xhttp.open('POST', '../common_php/profile_update_validation.php', true);
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send('id='+uid+'&name='+name+"&email="+email+"&password="+password+"&confirmPass="+confirmPass+"&day="+day+"&month="+month+"&year="+year+"&fileUpload="+fileUpload+"&phone="+phone);
+    
+    xhttp.onreadystatechange = function (){
+        if(this.readyState == 4 && this.status == 200){
+            if(this.responseText != ""){
+                if(this.responseText == 1){
+                    alert('Profile Updated successfully!');
+                    window.location = "../common_pages/profile_details.php";
                 }
-            }	
-        }
-        
+                else{
+                    alert('Profile not Updated successfully!'+this.responseText);
+                    window.location = "../common_pages/profile_details.php";
+                }
+            }else{
+                document.getElementById('msg').innerHTML = "Not Updated.";
+            }
+        }	
     }
+    
 }
 
 // RESET PASSWORD PAGE VALIDATIONS

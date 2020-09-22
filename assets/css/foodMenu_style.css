@@ -91,3 +91,17 @@
 .save_btn:hover{
     background-color: rgb(1, 156, 61)!important;
 }
+
+
+/* INVENTORY */
+#thMain{
+    font-size: 18px!important;
+    text-align: center;
+}
+.form_holder{
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    width: 60%!important;
+    display: none;
+}

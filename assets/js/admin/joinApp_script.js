@@ -59,3 +59,24 @@ function approveApplication(update_id){
         }	
     }
 }
+
+function rejectApplication(reject_id){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open('POST', '../../../phpValidations/admin/admin_validations/admin_controller.php', true);
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send('reject_id='+reject_id);
+
+    xhttp.onreadystatechange = function (){
+        if(this.readyState == 4 && this.status == 200){
+            if(this.responseText != ""){
+                if(this.responseText == "1"){
+                    alert("Job Application Rejected..");
+                    window.location = "../../../pages/admin/admin_layouts/notifications.php";
+                }
+            }else{
+                alert(this.responseText);
+                window.location = "../../../pages/admin/admin_layouts/notifications.php";
+            }
+        }	
+    }
+}

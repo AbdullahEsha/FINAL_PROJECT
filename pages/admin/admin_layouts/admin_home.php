@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../assets/css/adminHome.css">
     <link rel="stylesheet" href="../../../assets/css/bookRooms_style.css">
     <link rel="stylesheet" href="../../../assets/css/leftMenu_style.css">
+    <!-- <link rel="stylesheet" href="../../../assets/css/profileDetails.css"> -->
 
     <script src="../../../assets/js/admin/dashboard_script.js" ></script>
 
@@ -44,7 +45,7 @@
                                         <option value="Food Item">Food Item</option>
                                     </select>
                                     <div class="search">
-                                        <input type="search" name="search_box" id="search_box" class="btn" onkeyup="search_data()"  onblur="hide()" onreset="hide()">
+                                        <input type="search" name="search_box" id="search_box" class="btn" onkeyup="search_data()"  onreset="hide()">
                                         <input type="submit" value="Search" id="" class="btn_search btn" onclick="showSearchData()">
                                         <div class="search_result" id="search_result">
 
@@ -87,10 +88,6 @@
                                 <div class="report-box">
                                     <h6>Total Food Items</h6>
                                     <p id="item_count"></p>
-                                </div>
-                                <div class="report-box">
-                                    <h6>Total Inventories</h6>
-                                    <p><?php echo 356;?></p>
                                 </div>
                             </div>
                         </div>
@@ -170,10 +167,10 @@
                                 <table class="tableData" id="emp_table">
                                     <thead class="thead-dark ">
                                         <tr>
-                                            <th scope="col">Sl.</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Position</th>
+                                            <th class='dashDataTh'>Sl.</th>
+                                            <th class='dashDataTh'>Name</th>
+                                            <th class='dashDataTh'>Email</th>
+                                            <th class='dashDataTh'>Position</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbodyApplication" class="tbody_des">
