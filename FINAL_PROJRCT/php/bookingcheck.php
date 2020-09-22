@@ -18,8 +18,8 @@
             "<td>{$booking['pakage']}</td>".
             "<td>{$booking['status']}</td>".
             "<td>".
-                "<a href='bookingAccept.php?id={$booking['customer_id']}'>Accept</a> |".
-                "<a href='bookingReject.php?id={$booking['customer_id']}'>Reject</a>".
+                "<a href='bookingAccept.php?id={$booking['id']}'>Accept</a> |".
+                "<a href='bookingReject.php?id={$booking['id']}'>Reject</a>".
             "</td>".
         "</tr>";
 		}

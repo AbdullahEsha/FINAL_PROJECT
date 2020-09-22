@@ -19,7 +19,7 @@
             "<td>".
                 "<a href='chef_order.php?id={$order['customer_Id']}'>Food</a> |".
                 "<a href='staff_order.php?id={$order['customer_Id']}'>Other</a> |".
-                "<a href='reject_order.php?id={$order['customer_Id']}'>Reject</a>".
+                "<a href='reject_order.php?id={$order['id']}'>Reject</a>".
             "</td>".
         "</tr>";
 		}

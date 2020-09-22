@@ -131,7 +131,7 @@
 			echo "DB connection error";
 		}
 
-		$sql = "SELECT * FROM car_parking";
+		$sql = "SELECT * FROM car_parking WHERE status = 'Requested'";
 		$result = mysqli_query($conn, $sql);
 		$parking = [];
 
@@ -227,7 +227,7 @@
 			echo "DB connection error";
 		}
 
-		$sql = "SELECT * FROM booking_request WHERE status ='Requsested'";
+		$sql = "SELECT * FROM booking_request WHERE status ='Requested'";
 		$result = mysqli_query($conn, $sql);
 		$bookingExtend = [];
 
@@ -303,37 +303,247 @@
 	}
 
 
+	function getBookingByID($id){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "select * from bookings where id={$id}";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+		return $row;
+	}
+
+	function updateBookingAccept($booking){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "UPDATE bookings SET status ='Accepted' WHERE id={$booking['id']}";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function updateBookingReject($booking){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "UPDATE bookings SET status ='Rejected' WHERE id={$booking['id']}";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function insertChefOrder($chefOrder){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "INSERT INTO foodorder VALUES('', '{$chefOrder['itemName']}',{$chefOrder['quantity']},'{$inventory['picture']}','Ordered')";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
+	function insertStaffOrder($staffOrder){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "INSERT INTO roomservice VALUES('', '{$staffOrder['roomNumber']}',{$staffOrder['service']},'Ordered')";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function getCOrderByID($id){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "select * from customer_order where id={$id}";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+		return $row;
+	}
+
+
+
+	function rejectCustomerOrder($id){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "UPDATE customer_order SET status ='Rejected' WHERE id='$id'";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
+	function getParkingByID($id){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "select * from car_parking where id={$id}";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+		return $row;
+	}
+
+
+	function updateAcceptParking($id){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "UPDATE car_parking SET status ='Confirmed' WHERE id='$id'";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function updateHoldParking($id){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "UPDATE car_parking SET status ='Hold' WHERE id='$id'";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function updateRejectParking($id){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "UPDATE car_parking SET status ='Rejected' WHERE id='$id'";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
+	function getParkingCount(){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "SELECT `id` FROM `car_parking` WHERE status = 'Confirmed'";
+		$result = mysqli_query($conn, $sql);
+		$total = 0;
+	    while($row = mysqli_fetch_assoc($result)){
+	        $total ++;
+	    }
+	    return $total;
+	}
+
+
+	function getCarReservationByID($id){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "select * from car_reservation where id={$id}";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+		return $row;
+	}
+
+
 	
 
+	function updatereservationAccept($id){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "UPDATE car_reservation SET status ='Confirmed' WHERE id='$id'";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
+	function insertReservationBill($customer_id){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "INSERT INTO `customer_bill` VALUES ('','Car Reservation','200','$customer_id')";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 
 
+	function getComplainByID($id){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "select * from complains where id={$id}";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+		return $row;
+	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	function updateComplain($id){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "UPDATE complains SET status ='Reviewed' WHERE id='$id'";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	
 
 	
+?>

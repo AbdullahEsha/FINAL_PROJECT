@@ -16,8 +16,8 @@
             "<td>{$reservation['customer_id']}</td>".
             "<td>{$reservation['status']}</td>".
             "<td>".
-                "<a href='reservationAccept.php?id={$reservation['customer_id']}'>Accept</a> |".
-                "<a href='reservationReject.php?id={$reservation['customer_id']}'>Reject</a>".
+                "<a href='reservationAccept.php?id={$reservation['id']}'>Accept</a> |".
+                "<a href='reservationReject.php?id={$reservation['id']}'>Reject</a>".
             "</td>".
         "</tr>";
 		}

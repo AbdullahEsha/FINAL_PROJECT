@@ -15,11 +15,10 @@
             "<td>{$parking['checkIntime']}</td>".
             "<td>{$parking['customerName']}</td>".
             "<td>{$parking['customer_id']}</td>".
-            "<td>{$parking['status']}</td>".
             "<td>".
-                "<a href='accept_parking.php?id={$parking['customer_id']}'>Accept</a> |".
-                "<a href='hold_parking.php?id={$parking['customer_id']}'>Hold</a> |".
-                "<a href='reject_parking.php?id={$parking['customer_id']}'>Reject</a>".
+                "<a href='accept_parking.php?id={$parking['id']}'>Accept</a> |".
+                "<a href='hold_parking.php?id={$parking['id']}'>Hold</a> |".
+                "<a href='reject_parking.php?id={$parking['id']}'>Reject</a>".
             "</td>".
         "</tr>";
 		}
