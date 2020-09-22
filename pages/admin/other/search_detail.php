@@ -115,13 +115,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="button-area">
-                            <?php
-                                $userType = "<script>print(document.getElementById('search_Status').innerHTML);</script>";
-                            ?>
-                            <a href="<?=$userType;?>" class="btn-delete">Remove</a>
-                            <a href="" class="btn-edit">Edit</a>
-                        </div>
                     </div>
                 </div>
             </div>

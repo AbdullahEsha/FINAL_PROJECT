@@ -39,32 +39,52 @@
         }
     }
 
+    if(isset($_POST['reject_id'])){
+        $reject_id = $_POST['reject_id'];
+
+        $reject_stat = rejectApplication($reject_id);
+
+        if($reject_stat){
+            echo 1;
+        }
+        else{
+            echo $reject_stat;
+        }
+    }
+
     function printData($list,$pagename){
         $doc = "";
         $count = 1;
-        $totalRow = 0;
         if($pagename == "AdminHome"){
-            $totalRow = 3;
+            foreach($list as $application){
+                $doc .= "<tr>".
+                            "<th class='dashData'>SL#$count</th>".
+                            "<td class='dashData'>{$application['name']}</td>".
+                            "<td class='dashData'>{$application['email']}</td>".
+                            "<td class='dashData'>{$application['position']}</td>".
+                        "</tr>";
+                if($count == 3){
+                    break;
+                }
+                $count++;
+            }
         }
         else{
-            $totalRow = sizeof($list);
-        }
-        foreach($list as $application){
-            $doc .= "<tr>".
-                        "<th>SL#$count</th>".
-                        "<td>{$application['name']}</td>".
-                        "<td>{$application['position']}</td>".
-                        "<td>{$application['expected_salary']}</td>".
-                        "<td>".
-                            "<a href='../../../pages/admin/admin_layouts/updateNotification.php?option=view&id={$application['id']}' class='view_btn'>View</a>".
-                            "<button class='delete_btn' onclick='rejectButtonClick({$application['id']})'>Reject</button>".
-                        "</td>".
-                    "</tr>";
-            if($count == $totalRow){
-                break;
+            foreach($list as $application){
+                $doc .= "<tr>".
+                            "<th>SL#$count</th>".
+                            "<td>{$application['name']}</td>".
+                            "<td>{$application['position']}</td>".
+                            "<td>{$application['expected_salary']}</td>".
+                            "<td>".
+                                "<a href='../../../pages/admin/admin_layouts/updateNotification.php?option=view&id={$application['id']}' class='view_btn'>View</a>".
+                                "<button class='delete_btn' onclick='rejectApplication({$application['id']})'>Reject</button>".
+                            "</td>".
+                        "</tr>";
+                $count++;
             }
-            $count++;
         }
+        
         return $doc;
     }
 

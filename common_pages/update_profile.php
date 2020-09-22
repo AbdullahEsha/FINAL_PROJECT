@@ -1,5 +1,5 @@
 <?php
-    include "../../Php/db/DB_Config.php";
+    include "../db/DB_Config.php";
     session_start();
     $email = $_SESSION['email'];
     $username = $_SESSION['username'];
@@ -7,19 +7,14 @@
     $sql = "select * from users where id='$id'";
     $result = mysqli_query($db,$sql);
     while($row = mysqli_fetch_assoc($result)){
-        $role=$row['role'];
+        $role=$row['userType'];
         $email = $row['email'];
-        $username =$row['username'];
         $name=$row['name'];
         $id=$row['id'];
         $password = $row['password'];
-        $adminSql = "select * from admininfo where userId='$id'";
-        $adminRes = mysqli_query($db,$adminSql);
-        while($row = mysqli_fetch_assoc($adminRes)){
-            $pro_pic=$row['profile_picture'];
-            $balance = $row['balance'];
-            $gender = $row['gender'];
-        }
+        $pro_pic=$row['profile_picture'];
+        $phone = $row['phone'];
+        
     }
     $_SESSION['userId'] = $id;
 ?>
@@ -30,10 +25,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <script src="../../../assets/js/script.js" type="text/javaScript"></script>
+    <script src="../assets/js/admin/script.js" type="text/javaScript"></script>
 
-    <link rel="stylesheet" href="../../../assets/css/adminHome.css">
-    <link rel="stylesheet" href="../../../assets/css/profileDetails.css">
+    <link rel="stylesheet" href="../assets/css/adminHome.css">
+    <link rel="stylesheet" href="../assets/css/profileDetails.css">
 
     <title>Update Profile</title>
 </head>
@@ -98,11 +93,7 @@
                         <?php 
                             if(isset($name)){
                                 echo $name;
-                            }   
-                            else{
-                                $name = "Login";
-                                echo $name;
-                            }
+                            }  
                         ?>
                         </a>
                         <div class="dropdown-content" id="dropContent" aria-labelledby="navbarDropdown">
@@ -131,41 +122,6 @@
                         <?php
                             }
                         ?>
-                    </div>
-                    <div class="form-group">
-                        <label class="title">Username</label>
-                        <input type="text" name="username" class="form-control" id="username" value="<?=$username;?>">
-                        <p id="userNameError"></p>
-                        <div class="suggest-area">
-                            <p id="default"></p>
-                            <p id="suggestUsername" onmouseover="hoverText()" onclick="setUsername()" onmouseover="hoverText()" onmouseout="hoverRemove()"></p>  
-                        </div>
-                        <?php 
-                            if(isset($_SESSION['errorUsername'])){
-                                ?>
-                                <p class="text-danger"><?php echo $_SESSION['errorUsername'];?></p>
-                                <p class="text-info"><?php echo 'Suggested Username : '.$_SESSION['suggest'];?></p>
-                        <?php
-                            }
-                        ?>
-                    </div>
-                    <div class="form-group">
-                        <label class="title">Gender</label>
-                        <div class="radio-controller">
-                            <div class="radio-box">
-                                <input name="gender" type="radio" value="Male" id="male" oninput="genderValidation()" onclick="genderErrorRemover()" onblur="genderCheck()" <?php if($gender=='Male'){echo 'selected';}?>> 
-                                <label for="male" class="radio-label">Male</label>
-                            </div>
-                            <div class="radio-box">
-                                <input name="gender" type="radio" value="FeMale" id="female" oninput="genderValidation()" onclick="genderErrorRemover()" onblur="genderCheck()" <?php if($gender=='Female'){echo 'selected';}?>> 
-                                <label for="female" class="">FeMale</label>
-                            </div>
-                            <div class="radio-box">
-                                <input name="gender" type="radio" value="Other" id="other" oninput="genderValidation()" onclick="genderErrorRemover()" onblur="genderCheck()" <?php if($gender=='Other'){echo 'selected';}?>> 
-                                <label for="other" class="">Other</label>
-                            </div>
-                        </div>
-                        <p id="genderError"></p>
                     </div>
                     <div class="form-group">
                         <label class="title" >Password</label>
@@ -202,8 +158,8 @@
                         <p id="dobError"></p>
                     </div>
                     <div class="form-group">
-                        <label class="title" >Balance</label>
-                        <input type="number" name="balance" id="balance" class="form-control" value="<?=$balance;?>">
+                        <label class="title" >Phone</label>
+                        <input type="text" name="phone" id="phone" class="form-control" value="<?=$phone;?>">
                         <p id="passError"></p>
                     </div>
                     <div class="form-group">

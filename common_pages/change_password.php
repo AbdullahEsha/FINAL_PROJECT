@@ -37,26 +37,24 @@
                     <ul>
                         <li></i><a class="menu-title" href="../pages/admin/admin_layouts/admin_home.php"></i>DashBoard</a></li>
                         <li>
-                            <a class="menu-title" href="../employee_layouts/Employee.php">Employee Details</a>
+                            <a class="menu-title" href="../pages/admin/employee_layouts/Employee.php">Employee Details</a>
                             <ul class="submenu-ul">
                                 <li><a href="../pages/admin/employee_layouts/addEmployee.php">Add Employee</a></li>
-                                <li><a href="../pages/admin/employee_layouts/Delete_Emp.php">Delete Employee</a></li>
                                 <li><a href="../pages/admin/employee_layouts/UpdateEmp.php">Update Employee</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a class="menu-title" href="../customer_layouts/CustomerDetails.php">Customer Details</a>
+                            <a class="menu-title" href="../pages/admin/customer_layouts/CustomerDetails.php">Customer Details</a>
                             <ul class="submenu-ul">
                                 <li><a href="../pages/admin/customer_layouts/CustomerReservationInfo.php">Customer Reservations</a></li>
                                 <li><a href="../pages/admin/customer_layouts/Update_Customer.php">Update Customer</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a class="menu-title" href="../food_item_layouts/Food_Menu.php">Food Menu</a>
+                            <a class="menu-title" href="../pages/admin/food_item_layouts/Food_Menu.php">Food Menu</a>
                             <ul class="submenu-ul">
                                 <li><a href="../pages/admin/food_item_layouts/Add_Food_Item.php">Add Food Items</a></li>
                                 <li><a href="../pages/admin/food_item_layouts/Update_Food_Item.php">Update Food Items</a></li>
-                                <li><a href="../pages/admin/food_item_layouts/Delete_Food_Item.php">Delete Food Items</a></li>
                             </ul>
                         </li>
                         <li>

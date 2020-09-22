@@ -142,20 +142,36 @@
         }
     }
     
-    if (isset($_POST['id'])){
-        $id = $_POST['id'];
+    if (isset($_POST['edit_id'])){
+        $id = $_POST['edit_id'];
 
         $update = getData_byId($id);
         $packageObj = json_encode($update);
 
         echo $packageObj;
     }
-    else if(isset($_POST['addpackage'])){
+
+    if(isset($_POST['addpackage'])){
         $package_new = $_POST['addpackage'];
 
         $packageJSObj = (object)json_decode($package_new,true);
         
         $status = insert($packageJSObj);
+
+        if($status){
+            echo 1;
+        }
+        else{
+            echo $status;
+        }
+    }
+
+    if(isset($_POST['editpackage'])){
+        $package_new = $_POST['editpackage'];
+
+        $packageJSObj = (object)json_decode($package_new,true);
+        
+        $status = update($packageJSObj);
 
         if($status){
             echo 1;

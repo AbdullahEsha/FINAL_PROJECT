@@ -68,7 +68,7 @@
         return $result_arr;
     }
 
-    function deleteApplication($id){
+    function rejectApplication($id){
         $con = dbConnection();
 
         if(!$con){

@@ -126,17 +126,16 @@
         $printDoc = "";
         $count = 1;
         foreach($allRev as $rev){
-            $date_from_arr =  explode('-',$rev['rev_from']);
-            $date_from = $date_from_arr[2]."/".$date_from_arr[1]."/".$date_from_arr[0];
-            $date_to_arr =  explode('-',$rev['rev_to']);
-            $date_to = $date_to_arr[2]."/".$date_to_arr[1]."/".$date_to_arr[0];
+            // $date_from_arr =  explode('-',$rev['arrivalTime']);
+            // $date_from = $date_from_arr[2]."/".$date_from_arr[1]."/".$date_from_arr[0];
+            // $date_to_arr =  explode('-',$rev['departureTime']);
+            // $date_to = $date_to_arr[2]."/".$date_to_arr[1]."/".$date_to_arr[0];
             $printDoc .= "<tr class='rowGap'>".
                             "<th>SL.{$count}</th>".
                             "<td><img src='../../../uploads/{$rev['profile_picture']}' alt='' style='width: 60px; height: 60px; border-radius: 50%;' class='img_pic'></td>".
                             "<td>{$rev['name']}</td>".
-                            "<td>$date_from TO $date_to</td>".
-                            "<td>{$rev['total_amount']} BDT</td>".
-                            "<td>{$rev['paid_amount']} BDT</td>".
+                            "<td>{$rev['arrivalTime']} TO {$rev['departureTime']}</td>".
+                            "<td>{$rev['pakage']} BDT</td>".
                             "<td>{$rev['status']}</td>".
                         "</tr>";
             $count++;

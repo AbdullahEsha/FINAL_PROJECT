@@ -56,6 +56,7 @@
             $package->facility = $row['facility'];
             $package->price = $row['price'];
             $package->available = $row['available'];
+            $package->package_image = $row['package_image'];
         }
         
         return $package;
@@ -70,8 +71,11 @@
         $package = null;
         $sql = "delete from package where id='$id'";
         $result = mysqli_query($conn, $sql);
-        while($row = mysqli_fetch_assoc($result)){
-            $package = $row ;
+        if($result){
+            return $result;
+        }
+        else{
+            return mysqli_error($conn);
         }
         return $package;
     }
@@ -83,10 +87,14 @@
             echo "DB connection error";
         }
 
-        $sql = "update package set name='{$package[1]}', type='{$package[2]}', facility='{$package[3]}', price='{$package[4]}', available='{$package[5]}' where id='{$package[0]}'";
+        $sql = "update package set name='$package->name', type='$package->type', facility='$package->facility', price='$package->price', available='$package->available' where id='$package->id'";
         $result = mysqli_query($conn,$sql);
-
-        return $result;
+        if($result){
+            return $result;
+        }
+        else{
+            return mysqli_error($conn);
+        }
     }
 
     function insert($object){
