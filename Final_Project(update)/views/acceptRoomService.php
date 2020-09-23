@@ -3,9 +3,9 @@
 	require_once('../services/chef_staffservice.php');
 
 	if (isset($_GET['id'])) {
-		$foodOrder = getByFoodOrderID($_GET['id']);	
+		$serviceOrder = getByRoomServiceID($_GET['id']);	
 	}else{
-		header('location: Chef_Order.php');
+		header('location: room_service.php');
 	}
 
 ?>
@@ -13,32 +13,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Accept FoodOrder</title>
+	<title>Accept Room-Service Order</title>
 </head>
 <body>
 	<form action="../php/userController.php" method="post">
 		<fieldset>
-			<legend>Accept FoodOrder</legend>
+			<legend>Accept Service Order</legend>
 			<table align="center">
 				<tr align="center">
-					<td>Item Name</td>
-					<td><?=$foodOrder['itemName']?></td>
-					<td width="128px" rowspan="2">
-						<img height="60px" width="128px" src="../img/<?=$foodOrder['industry']?>">
-					</td>
+					<td>Room Number</td>
+					<td><?=$serviceOrder['roomNumber']?></td>
 				</tr>
 				<tr align="center">
-					<td>Quantity</td>
-					<td><?=$foodOrder['quantity']?></td>
+					<td>Service</td>
+					<td><?=$serviceOrder['service']?></td>
 				</tr>
 
 				<tr align="center">
 					<td></td>
 					<td>
 						<font size="3" color="red">Are you sure that you want to Accept the row!!</font><br>
-						<input type="hidden" name="id" value="<?=$foodOrder['id']?>">
+						<input type="hidden" name="id" value="<?=$serviceOrder['id']?>">
 						<input type="submit" name="acceptOrder" value="Confirm"> 
-						<a href="chef_order.php">Back</a>
+						<a href="room_service.php">Back</a>
 					</td>
 				</tr>
 			</table>

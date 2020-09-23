@@ -10,6 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script type="text/javascript" src="../asset/chef_staff_js/my_recipe.js"></script>
   <title></title>
 </head>
 <body>
@@ -31,24 +32,28 @@
       <p><a href="chef_order.php">Food Orders</a>
       <p><a href="inventory.php"> Inventory </a></p>
       <p><a href="chefwork_schedule.php">Chef Work-Schedule </a></p>
-      <p><a href="chef_salary.php">Chef Salary </a> </p>
+      <p><a href="chef_salary.php">Chef Details </a> </p>
       <p><a href="chef_feedback.php">Chef Feedback </a></p>
 		</ul>
 	</td>
 	<td width="60%">
-		<form action="../php/userController.php" method="post">
+		<form action="../php/userController.php" method="post" onsubmit="return val()">
             <fieldset>
                 <legend>My Recipe</legend>
             		<section align="center">
-            			<img src="<?= $pic ?>"  align="center" height="128px" width="128px">
-            			<p><input type="file" name="picture"></p>
+            			<img src="" id="item_image_upload" align="center" height="128px" width="128px" >
+            			<p><input type="file" id="pic" name="picture" onclick="removerPicture()" onchange="imgShow()"></p>
+                  <div id="picmsg"></div>
 
             		<hr/>
-                <input type="text" name="itemName" size="70%" placeholder="Item Name...">
+                <input type="text" id="name" name="itemName" size="70%" placeholder="Item Name..." onkeyup="removerName()">
+                <div id="namemsg"></div>
                 <hr>
-            		<textarea rows="5" cols="50" name="ingredient" placeholder="Ingredients..."></textarea>
+            		<textarea rows="5" cols="50" id="ing" name="ingredient" placeholder="Ingredients..." onkeyup="removerIng()"></textarea>
+                <div id="ingmsg"></div>
             		<hr/>
-            		<textarea rows="5" cols="100" name="process" placeholder="Process..."></textarea>
+            		<textarea rows="5" cols="100" id="pross" name="process" placeholder="Process..." onkeyup="removerPross()"></textarea>
+                <div id="prossmsg"></div>
             		<hr/>
                 <input type="hidden" name="chefId" value="<?=$_COOKIE['id']?>">
             		<div align="right">

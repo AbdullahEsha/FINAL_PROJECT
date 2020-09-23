@@ -1,7 +1,10 @@
 <?php
 	require_once("../services/chef_staffservice.php");
-	if(isset($_POST['get'])){
-		$inventory = getAllInventory();
+	if(isset($_POST['name'])){
+		
+		$name = $_POST['name'];
+
+		$inventory = getSearchInventory($name);
 
 		echo printAll($inventory);	
 	}
@@ -17,10 +20,6 @@
             "<td>{$inventory['price']}</td>".
             "<td>".$cost."</td>".
             "<td width='128px'><img src='../img/{$inventory['picture']}'  height='60px' width='128px'></td>".
-            "<td>".
-                "<a href='takeProduct.php?id={$inventory['id']}'>Take</a> |".
-                "<a href='newRestore.php?id={$inventory['id']}'>Restore</a> ".
-            "</td>".
         "</tr>";
 		}
 		return $doc;

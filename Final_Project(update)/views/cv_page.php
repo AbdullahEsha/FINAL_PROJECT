@@ -72,27 +72,6 @@
   </tr>   
       </table>
     </fieldset>
-  <!-- <tr> -->
-    <!-- <td colspan="2" align="center">  -->
-      <!-- <input type="text" name="name" placeholder="Name"> -->
-      <!-- <hr><br> -->
-       
-      <!-- <br>  -->
-      <!-- <input type="text" name="email" placeholder="Email"> -->
-      <!-- <hr><br> -->
-       
-      <!-- <br>  -->
-      <!-- <input type="text" name="position" placeholder="Position"> -->
-      <!-- <hr><br> -->
-       
-      <!-- <br>  -->
-      <!-- <input type="text" name="salary" placeholder="Expected Salary"> -->
-      <!-- <hr><br> -->
-      <!-- CV Form :<input type="file" name=""> -->
-      <!-- <br> -->
-      <!-- <input type="button" name="cv_insert" value="Submit" align="right"> -->
-      <!-- <br> -->
-    <!-- </td> -->
 
   </tr>  
   <tr>

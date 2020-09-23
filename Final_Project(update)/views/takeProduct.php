@@ -1,6 +1,6 @@
 <?php
   require_once('../php/session_header.php');
-  require_once('../service/userService.php');
+  require_once('../services/chef_staffservice.php');
 
   if (isset($_GET['id'])) {
     $inventory = getByInventoryID($_GET['id']); 
@@ -34,7 +34,7 @@
       <p><a href="chef_order.php">Food Orders</a>
       <p><a href="inventory.php"> Inventory </a></p>
       <p><a href="chefwork_schedule.php">Chef Work-Schedule </a></p>
-      <p><a href="chef_salary.php">Chef Salary </a> </p>
+      <p><a href="chef_salary.php">Chef Details </a> </p>
       <p><a href="chef_feedback.php">Chef Feedback </a></p>
     </ul>
   </td>

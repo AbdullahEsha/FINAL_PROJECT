@@ -1,7 +1,6 @@
 <?php
-	session_start();
 	require_once('../php/session_header.php');
-	require_once('../service/userService.php');
+	require_once('../services/chef_staffservice.php');
 
 	if(isset($_POST['submit'])){
 
@@ -20,9 +19,7 @@
 			$status = validate($user);
 
 			$id = $status['id'] ;
-			//$email = $status['email'] ;
 			$name = $status['name'] ;
-			//$password = $status['password'] ;
 			$phone = $status['phone'] ;
 			$profile_picture = $status['profile_picture'];
 			$userType = $status['userType']; 
