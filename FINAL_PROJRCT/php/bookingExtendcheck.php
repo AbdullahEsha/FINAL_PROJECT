@@ -15,8 +15,8 @@
             "<td>{$bookingExtend['package']}</td>".
             "<td>{$bookingExtend['status']}</td>".
             "<td>".
-                "<a href='bookingExtendAccept.php?id={$bookingExtend['customer_id']}'>Accept</a> |".
-                "<a href='bookingExtendReject.php?id={$bookingExtend['customer_id']}'>Reject</a>".
+                "<a href='bookingExtendAccept.php?id={$bookingExtend['id']}'>Accept</a> |".
+                "<a href='bookingExtendReject.php?id={$bookingExtend['id']}'>Reject</a>".
             "</td>".
         "</tr>";
 		}

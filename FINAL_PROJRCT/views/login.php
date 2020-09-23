@@ -26,28 +26,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<style>
+		*{
+			margin: 0; 
+			padding: 0; 
+			box-sizing: border-box;
+		}
+
+		body {
+		background-image: url(../img/final4.jpg);
+		background-repeat: no-repeat;
+        background-size: 125%;	    
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            opacity: 0.8;
+        }
+        form{
+        	float: center;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 15px 30px;
+          text-decoration: none;
+        }
+        #A{
+        	float: right;
+        }
+        #D{
+        	background-color: antiquewhite; 
+        	position: absolute;
+            margin-top: 45%;
+            margin-left: 55%;
+            border: 1px solid;
+            padding: 10px;
+            box-shadow: 5px 10px #888888;
+            opacity: 0.8;
+        }
+        
+        .active {
+          background-color: #4CAF50;
+        }	
+	</style>
 </head>
 <body>
+	<ul>
+        <li><a href="../index.php">Home</a></li>
+        <li style="float:right"><a class="active" href="login.php">Login</a></li>
+        <li style="float:right"><a class="active" href="register.php">SignUp</a></li>
+    </ul>
 
 	<form action="../php/logCheck.php" method="post">
-		<fieldset>
-			<legend>SignIn</legend>
-			<table>
-				<tr>
-					<td>Username</td>
-					<td><input type="text" name="username"></td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td><input type="password" name="password"></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" name="submit" value="Login"><a href="../index.php">HOME</a></td>
-				</tr>
-			</table>
-		</fieldset>
+		<div id="D" style="box-shadow: ">
+			Email<br>
+			<input type="text" name="email" size="60%">
+			<br>
+			Password<br>
+			<input type="password" name="password" size="60%">
+			<br>
+            <br>
+		    <input type="submit" name="submit" value="Login">       <a id="A" href="../index.php">HOME</a>
+		</div>	
 	</form>
 </body>
 </html>

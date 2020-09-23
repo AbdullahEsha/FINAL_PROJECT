@@ -1,17 +1,12 @@
 <?php
     require_once('../php/session_header.php');
-    require_once("../services/managerService.php");
-?>
+   ?> 
 <!DOCTYPE html>
 <html>
 <head>
   <title></title>
   <style type="text/css">
-      *{
-      margin: 0;
-    box-sizing: border-box;
-    padding: 0;    
-      }
+      *{margin: 0; padding: 0; box-sizing: border-box;}
       #ber{
           background-color: #333;
           margin: 0;
@@ -47,11 +42,10 @@
           background-color:#008B8B;
       }
   </style>
-  <script type="text/javascript" src="../managerAsset/JS/booking.js"></script>
 </head>
-<body onload="bookingData()">
+<body>
   <table>
-  <tr >
+  <tr>
     <td colspan="2" width="100%" height="30px" id="ber">
         <div style="background-color: #008080; padding: 10px 46px; float: left;">
             <h1>HOTEL</h1>
@@ -76,35 +70,11 @@
           <li><a class="nav1"href="manager_page.php">Home </a></li>
         </ul>
     </td>
-    <td width="80%" >
-      <a href="extend_booking.php" id="MM" style="background-color: green;">Extend Booking </a>
-      <div style="background-color: white;">
-
-    
-    <fieldset>
-      <legend>BOOKING</legend>
-      <form method="post">
-        <table border="1" cellspacing="0" cellpadding="8" width="100%" align="center">
-           <tr>
-            <td>ID</td>
-             <td>Arrival Time</td>
-             <td>Departure Time</td>
-             <td>Pakage</td>
-             <td>Status</td>
-             <td>Action</td>
-           </tr>
-           <tbody id="booking">
-             
-           </tbody>
-        </table> 
-
-      </form>
-    </fieldset>
-        
-      </div>
-    
-
-  </td>
+    <td>
+        <h1 align="center" style="color: white;">
+             Well Come To Manager Page
+        </h1>
+    </td>
     <tr style="background-color : white;">
         <td colspan="2" align="center">copyright@2017</td>
     </tr>

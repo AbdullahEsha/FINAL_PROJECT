@@ -7,81 +7,160 @@
 		}
 	}
 
+    function EmailTest(){
+        if(isset($_GET['email'])){
+            $email=$_GET['email'];
+        if($email==""){
+            echo "sorry!! can't be empty.";
+        }
+      }
+    }
+    function DOBTest(){
+        $err="";
+
+        $dd="";
+        $mm="";
+        $yy="";
+    if (isset($_GET['date'])){
+        $dd=(int)$_GET['date'];
+            if ($dd>0 && $dd<=31){}
+            else
+            {
+              $err="invalid";
+            }
+        }
+
+    if (isset($_GET['month'])){
+        $mm=(int)$_GET['month'];
+            if ($mm>0 && $mm<=12){}
+            else
+            {
+              $err="invalid";
+            }
+        }
+    if (isset($_GET['year'])){
+        $yy=(int)$_GET['year'];
+            if ($yy>=1900 && $yy<=2016){}
+            else
+            {
+              $err="invalid";
+            }
+          }
+
+    if($err==""){
+        echo $dd."<br>";
+        echo $mm."<br>";
+        echo $yy."<br>";
+    }
+    if ($err!=""){
+        echo "invalid";
+        }
+    }
+
 ?>
 
-<!DOCTYPE html>
 <html>
 <head>
-	<style>
-		body {
-		background-image: url(final4.jpg);
-		background-repeat: no-repeat;
-        background-size: 125%;	    
-        }
-
-        ul {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-            opacity: 0.8;
-        }
-        form{
-        	float: center;
-        }
-        
-        li {
-          float: left;
-        }
-        
-        li a {
-          display: block;
-          color: white;
-          text-align: center;
-          padding: 15px 30px;
-          text-decoration: none;
-        }
-        #A{
-        	float: right;
-        }
-        #D{
-        	background-color: antiquewhite; 
-        	position: absolute;
-            margin-top: 35%;
-            margin-left: 55%;
-            border: 1px solid;
-            padding: 10px;
-            box-shadow: 5px 10px #888888;
-            opacity: 0.8;
-        }
-        
-        .active {
-          background-color: #4CAF50;
-        }	
-	</style>
+    <title>Home</title>
+    <script type="text/javascript" src="../managerAsset/JS/form.js"></script>
 </head>
 <body>
-	<ul>
-        <li><a href="../index.php">Home</a></li>
-        <li style="float:right"><a class="active" href="login.php">Login</a></li>
-        <li style="float:right"><a class="active" href="register.php">SignUp</a></li>
-    </ul>
-
-	<form action="../php/regCheck.php" method="post">
-		<div id="D" style="box-shadow: ">
-			User Name
-			<br>
-		    <input type="text" name="username" size="60%">
-		    <br>	
-			Password<br>
-			<input type="password" name="password" size="60%">
-			<br>
-			Email<br>
-			<input type="text" name="email" size="60%">
-			<br>
-			<hr>
-		    <input type="submit" name="submit" value="Confirm">     <a id="A" href="../index.php">HOME</a>
-		</div>	
-	</form>
+    <form name="myform" method="post" action="../php/regCheck.php" onsubmit="return val()">
+        <table border="1" cellspacing="0" align="center">
+            <tr>
+                <td colspan="3" align="center" height="30%">
+                </td>           
+            </tr>
+            <tr>
+                <td  width="20%">Name
+                </td>
+                <td width="30px">
+                    <input type="text" id="name" name="name" onkeyup="removername()" size="30px" height="100" width="100" >
+                </td>
+                <td width="5%" id="namemsg">
+                </td>
+            </tr>
+            <tr>
+                <td>Email
+                </td>
+                <td>
+                    <input type="email" id="email" name="email" onkeyup="removeremail()" size="30px">
+                    <?php EmailTest();?>
+                </td>
+                <td id="emailmsg">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>Date of Birth
+                </td>
+                <td>
+                    <input type="text" id="day" name="day" onkeyup="removerdob()"size="5px">/
+                    <input type="text" id="month" name="month" onkeyup="removerdob()"size="5px">/
+                    <input type="text" id="year" name="year" onkeyup="removerdob()"size="5px">   <i>(dd/mm/yyyy)</i>
+                    <?php DOBTest();?>
+                </td>
+                <td id="dobmsg">
+                </td>
+            </tr>
+            <tr>
+                <td>User Type
+                </td>
+                <td>
+                    <select name="type" id="bg" onclick="removertype()">
+                        <option></option>
+                        <option>Manager</option>
+                        <option>Staff</option>
+                    </select>
+                </td>
+                <td id="bgmsg">
+                </td>
+            </tr>
+            <tr>
+                <td  width="20%">Phone
+                </td>
+                <td width="30px">
+                    <input type="text" id="phone" name="phone" onkeyup="removerphone()" size="30px" height="100" width="100" >
+                </td>
+                <td width="5%" id="phonemsg">
+                </td>
+            </tr>
+            <tr>
+                <td  width="20%">Password
+                </td>
+                <td width="30px">
+                    <input type="password" id="password" name="password" onkeyup="removerpassword()" size="30px" height="100" width="100" >
+                </td>
+                <td width="5%" id="passwordmsg">
+                </td>
+            </tr>
+            <tr>
+                <td  width="20%">Change Password
+                </td>
+                <td width="30px">
+                    <input type="password" id="Cpassword" name="Cpassword" onkeyup="removerCpassword()" size="30px" height="100" width="100" >
+                </td>
+                <td width="5%" id="Cpasswordmsg">
+                </td>
+            </tr>
+            <tr>
+                <td>Photo
+                </td>
+                <td colspan="2">
+                    <input type="file" id="file" name="picture" onclick="removerpicture()">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" height="30px" id="picmsg">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="right">
+                    <a href="../index.php">HOME</a>
+                    <input type="submit" name="submit" value="Submit"> 
+            <input type="reset" name="" value="Clear"> 
+                </td>
+            </tr>
+        </table>
+    </form>
 </body>
-</html>

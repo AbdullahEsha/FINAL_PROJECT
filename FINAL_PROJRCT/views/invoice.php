@@ -1,3 +1,5 @@
+
+
 <?php
     require_once('../php/session_header.php');
     require_once("../services/managerService.php");
@@ -19,7 +21,7 @@
       }
       body{
           opacity: 0.8;
-          background-image: url('../img/1.jpg');
+          background-image: url('../img/2.jpg');
           background-repeat: no-repeat;
           background-size: 100% 100%;
       }
@@ -47,9 +49,9 @@
           background-color:#008B8B;
       }
   </style>
-  <script type="text/javascript" src="../managerAsset/JS/booking.js"></script>
+  <script type="text/javascript" src="../managerAsset/JS/invoice.js"></script>
 </head>
-<body onload="bookingData()">
+<body>
   <table>
   <tr >
     <td colspan="2" width="100%" height="30px" id="ber">
@@ -77,28 +79,25 @@
         </ul>
     </td>
     <td width="80%" >
-      <a href="extend_booking.php" id="MM" style="background-color: green;">Extend Booking </a>
       <div style="background-color: white;">
-
-    
     <fieldset>
-      <legend>BOOKING</legend>
-      <form method="post">
-        <table border="1" cellspacing="0" cellpadding="8" width="100%" align="center">
+      <legend>INVOICE MANAGEMENT</legend><br>
+      <div align="right">
+        <input type="text" name="customerId" id="customerId" placeholder="Customer ID..." onkeyup="invoiceData()">
+      </div>
+      <br>
+      <br>
+        <table border="1" cellspacing="0" cellpadding="5" width="100%" >
            <tr>
             <td>ID</td>
-             <td>Arrival Time</td>
-             <td>Departure Time</td>
-             <td>Pakage</td>
-             <td>Status</td>
+             <td>Services</td>
+             <td>Bill ($)</td>
              <td>Action</td>
            </tr>
-           <tbody id="booking">
+           <tbody id="invoice">
              
            </tbody>
-        </table> 
-
-      </form>
+        </table>
     </fieldset>
         
       </div>

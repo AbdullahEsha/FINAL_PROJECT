@@ -16,9 +16,6 @@
 					    "<td>{$feedback['rating']}</td>".
 					    "<td>{$feedback['comment']}</td>".
 					    "<td>{$feedback['empId']}</td>".
-					     "<td>".
-				              "<a href='review_feedback.php?id={$feedback['id']}'>Review</a> ".
-				          "</td>".
 					"</tr>";
 		}
 		return $doc;

@@ -543,7 +543,63 @@
 			return false;
 		}
 	}
-	
 
+	function getBookingRequesByID($id){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "select * from booking_request where id={$id}";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+		return $row;
+	}
+
+	function updateExtendBooking($extendBooking){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "UPDATE bookings SET departureTime ='{$extendBooking['ingredients']}', pakage='{$extendBooking['process']}' WHERE customer_id={$recipe['id']}";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
+	function insertBillExtendBooking($extendBooking){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "INSERT INTO `customer_bill` VALUES ('','Extend Booking','{$extendBooking['cost']}','{$extendBooking['$customer_id']}')";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
+	
+	function updateExtendBookingReject($id){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+		$sql = "UPDATE booking_request SET status ='Rejected' WHERE id='$id'";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	
 	
 ?>

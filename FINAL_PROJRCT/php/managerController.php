@@ -308,5 +308,63 @@
 		}
 	}
 	
+    
+    if(isset($_POST['bookingRequestAccept'])){ 
+
+		$newDepartureTime = $_POST['newDepartureTime'];
+		$package 	= $_POST['package'];
+		$customer_id = $_POST['customer_id'];
+		$cost = $_POST['cost'];
+
+		if(empty($newDepartureTime) || empty($package) || empty($customer_id) || empty($cost)){
+			header('location: ../views/bookingRequestAccept.php?error=null_value');
+		}else{
+
+			$extendBooking = [
+				'newDepartureTime' => $newDepartureTime,
+				'package' => $package,
+				'customer_id' => $customer_id,
+				'cost'        => $cost
+			];
+
+			$status1 = insertBillExtendBooking($extendBooking);
+			$status  = updateExtendBooking($extendBooking);
+
+			if($status1){
+				if ($status){
+					header('location: ../views/booking.php?success=done');
+				}
+				else{
+					header('location: ../views/bookingRequestAccept.php?error=db_error');
+					return;
+				}
+			}
+			else{
+				header('location: ../views/bookingRequestAccept.php?error=db_error');
+			}
+			
+		}
+	}
+
+
+	
+	if(isset($_POST['bookingRequestReject'])){
+		$id  = $_POST['id'];
+
+		if(empty($id)){
+			header('location: ../views/bookingRequestReject.php?id={$id}');
+		}else{
+
+			$status = updateExtendBookingReject($id);
+
+			if($status){
+				header('location: ../views/extend_booking.php?success=done');
+			}else{
+				header('location: ../views/bookingRequestReject.php?id={$id}');
+			}
+		}
+	}
+
+
 
 ?>
